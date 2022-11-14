@@ -1,19 +1,39 @@
-import { Text, Html, ContactShadows, PresentationControls, Float, Environment, useGLTF, Image } from '@react-three/drei'
-import { useState } from 'react'
+import { Text, Html, ContactShadows, PresentationControls, Float, Environment, useGLTF, Image, Stars, Plane, Sphere, Torus, Ring, OrbitControls, Cone, TorusKnot } from '@react-three/drei'
+import { useEffect, useRef, useState } from 'react'
 export default function Experience() {
     const computer = useGLTF('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf')
-    const [cameraXYZ, setCameraXYZ] = useState([0,0,0])
+    const spaceship = useGLTF('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/low-poly-spaceship/model.gltf')
+    const [cameraXYZ, setCameraXYZ] = useState([0, 0, 0])
     const [zoom, setZoom] = useState(0);
     const [currentlyZoomed, setCurrentlyZoomed] = useState(false);
-    const [websites, setWebsites] = useState(['http://127.0.0.1:5173/','https://vivek9patel.github.io/','https://win11.vercel.app/','https://winxp.vercel.app/','http://nvisia.com',''])
-    const [index,setIndex] =useState(0);
+    const [websites, setWebsites] = useState(['http://127.0.0.1:5173/', 'https://vivek9patel.github.io/', 'https://win11.vercel.app/', 'https://winxp.vercel.app/', 'http://nvisia.com', ''])
+    const [index, setIndex] = useState(0);
+    const [spaceshipRoatation, setSpaceshipRotation] = useState(0);
+    const [spaceshipPositionZ, setSpaceshipPositionZ] = useState(-10);
+
+    const requestRef = useRef()
+
+
+
+    useEffect(() => {
+        animateSpaceship()
+    }, [spaceshipRoatation]);
+
+
+    const animateSpaceship = async () => {
+
+        await setSpaceshipRotation(spaceshipRoatation + .0001)
+        await setSpaceshipPositionZ(spaceshipPositionZ - .01)
+
+    }
+
 
     return <>
 
-        <color args={['red']} attach="background" />
+
 
         <Environment preset='city' />
-
+        <color args={['black']} attach={'background'}></color>
         <PresentationControls
             global
             //rotation={ [ 0.0, -0.1, 0 ] }
@@ -38,21 +58,23 @@ export default function Experience() {
             <primitive
                 object={computer.scene}
                 position-y={- 1.2}
-                position-z={ zoom }
-            onClick={() => {
-                if(!currentlyZoomed){
-                    setCameraXYZ([0,-.65,0]); 
-                    setZoom(3);
-                    setCurrentlyZoomed(true)
-                }else{
-                    setCameraXYZ([0,0,0]); 
-                    setZoom(0);
-                    setCurrentlyZoomed(false)
+                position-z={zoom}
+                onClick={() => {
+                    if (!currentlyZoomed) {
+                        setCameraXYZ([0, -.65, 0]);
+                        setZoom(3);
+                        setCurrentlyZoomed(true)
+                    } else {
+                        setCameraXYZ([0, 0, 0]);
+                        setZoom(0);
+                        setCurrentlyZoomed(false)
 
 
-                }
-            }}
+                    }
+                }}
             >
+
+
                 <Html
                     transform
                     wrapperClass="htmlScreen"
@@ -60,8 +82,8 @@ export default function Experience() {
                     position={[0, 1.56, - 1.4]}
                     rotation-x={- 0.256}
                 >
-                    {websites[index]!= '' ?<iframe src={websites[index]}  /> :null}
-                    
+                    {websites[index] != '' ? <iframe src={websites[index]} /> : null}
+
                     {/**
                      * Tylers Porfolio
                      * <iframe src="http://127.0.0.1:5173/"  />
@@ -78,31 +100,130 @@ export default function Experience() {
                 </Html>
             </primitive>
 
+            <Float>
+                <primitive
+                    object={spaceship.scene}
+                    position-y={1.2}
+                    position-z={spaceshipPositionZ}
+                    rotation-y={spaceshipRoatation}
+                    onClick={() => {
+                        setSpaceshipRotation(spaceshipRoatation + .1);
+                    }}
+                >
+                </primitive>
 
-         
-            <Image
+            </Float>
+
+
+
+
+           {/**  <Image
                 url="./g46.png"
                 position={[2, 0.75, 0.75]}
                 rotation-y={- 1.25}
-                onClick={()=>{
-                    if(index == websites.length-1){
+                onClick={() => {
+                    if (index == websites.length - 1) {
                         setIndex(0)
-                    }else{
-                        setIndex(index+1)
+                    } else {
+                        setIndex(index + 1)
                     }
                 }}
             />
-            <Text
+        
+            <Plane args={[0, 0]} />
+            */}
+
+            {index%2 == 0 ?
+           <>
+
+             <Text
                 font="./bangers-v20-latin-regular.woff"
 
                 fontSize={.2}
-                position={[2, -.2, .9]}
-                rotation-y={- 1.25}
+                position={[2, .6, .9]}
+                rotation-y={spaceshipRoatation}
+                rotation-z={spaceshipRoatation}
                 maxWidth={2}
-                color={'orange'}
+                color={'White'}
             >
-            Tyler Gottlieb - Nvisionary 
+                Tyler Gottlieb - Nvisionary
             </Text>
+            <Sphere
+           
+            
+                scale={.5}
+                position={[5, 0.75,-0.75]}
+                onClick={() => {
+                    if (index == websites.length - 1) {
+                        setIndex(0)
+                    } else {
+                        setIndex(index + 1)
+                    }
+                }}
+                >
+                <meshStandardMaterial color="#f3702d" />
+                
+            </Sphere>
+            
+            <Torus
+            args={[3,.21,16,100]}
+                position={[5, 0.75, -0.75]}
+                scale={.5}
+                rotation-x={spaceshipRoatation}
+                rotation-y={spaceshipRoatation}
+                
+            
+                >
+                <meshStandardMaterial color="darkblue"  />
+            </Torus>
+            </>
+:
+<>
+
+<Text
+   font="./bangers-v20-latin-regular.woff"
+
+   fontSize={.2}
+   position={[2, .6, .9]}
+   rotation-y={spaceshipRoatation}
+   rotation-z={spaceshipRoatation}
+   maxWidth={2}
+   color={'White'}
+>
+   Tyler Gottlieb - Nvisionary - Click Me
+</Text>
+<Cone
+
+
+   scale={.5}
+   position={[5, 0.75,-0.75]}
+   onClick={() => {
+       if (index == websites.length - 1) {
+           setIndex(0)
+       } else {
+           setIndex(index + 1)
+       }
+   }}
+   >
+   <meshStandardMaterial color="#f3702d" />
+   
+</Cone>
+
+<TorusKnot
+args={[3,.21,16,100]}
+   position={[5, 0.75, -0.75]}
+   scale={.5}
+   rotation-x={spaceshipRoatation}
+   rotation-y={spaceshipRoatation}
+   
+
+   >
+   <meshStandardMaterial color="green"  />
+</TorusKnot>
+</>
+}
+            <Stars radius={1} depth={50} count={5000} factor={4} saturation={0} fade speed={3} />
+
         </PresentationControls>
 
         <ContactShadows

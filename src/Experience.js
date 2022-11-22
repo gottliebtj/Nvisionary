@@ -1,8 +1,18 @@
-import { Text, Html, ContactShadows, PresentationControls, Float, Environment, useGLTF, Image, Stars, Plane, Sphere, Torus, Ring, OrbitControls, Cone, TorusKnot } from '@react-three/drei'
+import { Text, Html, ContactShadows, PresentationControls, Float, Environment, useGLTF, Image, Stars, Plane, Sphere, Torus, Ring, OrbitControls, Cone, TorusKnot, FirstPersonControls, Center, Text3D } from '@react-three/drei'
 import { useEffect, useRef, useState } from 'react'
+import Crystal from './Crystal'
+import Deathstar from './Deathstar'
+import Marbel from './Marbel'
+import Monkey from './Monkey'
+import Rock from './Rock'
+import RoughPlanet from './RoughPlanet'
+import SandPlanet from './TechPlanet'
+import TechPlanet from './TechPlanet'
 export default function Experience() {
     const computer = useGLTF('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf')
     const spaceship = useGLTF('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/low-poly-spaceship/model.gltf')
+    const suzanne = useGLTF('./suzanne.gltf')
+
     const [cameraXYZ, setCameraXYZ] = useState([0, 0, 0])
     const [zoom, setZoom] = useState(0);
     const [currentlyZoomed, setCurrentlyZoomed] = useState(false);
@@ -10,6 +20,7 @@ export default function Experience() {
     const [index, setIndex] = useState(0);
     const [spaceshipRoatation, setSpaceshipRotation] = useState(0);
     const [spaceshipPositionZ, setSpaceshipPositionZ] = useState(-10);
+    const [freeModeEnabled, setFreeModeEnabled] = useState(false);
 
     const requestRef = useRef()
 
@@ -29,13 +40,12 @@ export default function Experience() {
 
 
     return <>
-
-
-
         <Environment preset='city' />
         <color args={['black']} attach={'background'}></color>
+        {freeModeEnabled ? <OrbitControls> </OrbitControls> : null}
         <PresentationControls
             global
+            makeDefault={!freeModeEnabled}
             //rotation={ [ 0.0, -0.1, 0 ] }
             //polar={ [ - 0.4, 0.2 ] }
             zoom={zoom}
@@ -73,7 +83,29 @@ export default function Experience() {
                     }
                 }}
             >
+                 <Monkey />
+                <Html
+                    position={[0, 0, 1.2]}
+                >
+                    <button onClick={() => {
+                        setFreeModeEnabled(!freeModeEnabled)
 
+                    }}>Click me</button>
+
+                    {/**
+                     * Tylers Porfolio
+                     * <iframe src="http://127.0.0.1:5173/"  />
+                     * 
+                     * Ubunutu
+                     *  <iframe src="https://vivek9patel.github.io/"  />
+                     * 
+                     * Windows 11
+                     * <iframe src="https://win11.vercel.app/"  />
+                     * 
+                     * Windows XP
+                     * <iframe src="https://winxp.vercel.app/"  />
+                     */}
+                </Html>
 
                 <Html
                     transform
@@ -117,7 +149,7 @@ export default function Experience() {
 
 
 
-           {/**  <Image
+            {/**  <Image
                 url="./g46.png"
                 position={[2, 0.75, 0.75]}
                 rotation-y={- 1.25}
@@ -133,95 +165,92 @@ export default function Experience() {
             <Plane args={[0, 0]} />
             */}
 
-            {index%2 == 0 ?
-           <>
+            <>
 
-             <Text
-                font="./bangers-v20-latin-regular.woff"
-
-                fontSize={.2}
-                position={[2, .6, .9]}
-                rotation-y={spaceshipRoatation}
-                rotation-z={spaceshipRoatation}
-                maxWidth={2}
-                color={'White'}
-            >
-                Tyler Gottlieb - Nvisionary
-            </Text>
-            <Sphere
-           
-            
-                scale={.5}
-                position={[5, 0.75,-0.75]}
-                onClick={() => {
+                <Rock onClick={() => {
                     if (index == websites.length - 1) {
                         setIndex(0)
                     } else {
                         setIndex(index + 1)
                     }
-                }}
+                }} />
+
+                <Text
+                    font="./bangers-v20-latin-regular.woff"
+
+                    fontSize={.2}
+                    position={[2, .6, .9]}
+                    rotation-y={spaceshipRoatation}
+                    rotation-z={spaceshipRoatation}
+                    maxWidth={2}
+                    color={'White'}
                 >
-                <meshStandardMaterial color="#f3702d" />
-                
-            </Sphere>
-            
-            <Torus
-            args={[3,.21,16,100]}
-                position={[5, 0.75, -0.75]}
-                scale={.5}
-                rotation-x={spaceshipRoatation}
-                rotation-y={spaceshipRoatation}
-                
-            
-                >
-                <meshStandardMaterial color="darkblue"  />
-            </Torus>
+                    Tyler Gottlieb - Nvisionary
+                </Text>
+
+
             </>
-:
-<>
 
-<Text
-   font="./bangers-v20-latin-regular.woff"
-
-   fontSize={.2}
-   position={[2, .6, .9]}
-   rotation-y={spaceshipRoatation}
-   rotation-z={spaceshipRoatation}
-   maxWidth={2}
-   color={'White'}
->
-   Tyler Gottlieb - Nvisionary - Click Me
-</Text>
-<Cone
+            <>
 
 
-   scale={.5}
-   position={[5, 0.75,-0.75]}
-   onClick={() => {
-       if (index == websites.length - 1) {
-           setIndex(0)
-       } else {
-           setIndex(index + 1)
-       }
-   }}
-   >
-   <meshStandardMaterial color="#f3702d" />
-   
-</Cone>
+                <Cone
 
-<TorusKnot
-args={[3,.21,16,100]}
-   position={[5, 0.75, -0.75]}
-   scale={.5}
-   rotation-x={spaceshipRoatation}
-   rotation-y={spaceshipRoatation}
-   
 
-   >
-   <meshStandardMaterial color="green"  />
-</TorusKnot>
-</>
-}
+                    scale={.5}
+                    position={[15, 0.75, -20.75]}
+                    onClick={() => {
+                        if (index == websites.length - 1) {
+                            setIndex(0)
+                        } else {
+                            setIndex(index + 1)
+                        }
+                    }}
+                >
+                    <meshStandardMaterial color="#f3702d" />
+
+                </Cone>
+
+                <TorusKnot
+                    args={[3, .21, 16, 100]}
+                    position={[15, 0.75, -20.75]}
+                    scale={.5}
+                    rotation-x={spaceshipRoatation}
+                    rotation-y={spaceshipRoatation}
+
+
+                >
+                    <meshStandardMaterial color="green" />
+                </TorusKnot>
+            </>
+
+            <>
+
+
+                <Marbel onClick={() => {
+                    if (index == websites.length - 1) {
+                        setIndex(0)
+                    } else {
+                        setIndex(index + 1)
+                    }
+                }} />
+            </>
+
+            <>
+
+                <Deathstar onClick={() => {
+                    if (index == websites.length - 1) {
+                        setIndex(0)
+                    } else {
+                        setIndex(index + 1)
+                    }
+                }} />
+            </>
+
+            <Crystal />
+            <SandPlanet />
+            <RoughPlanet />
+
             <Stars radius={1} depth={50} count={5000} factor={4} saturation={0} fade speed={3} />
 
         </PresentationControls>

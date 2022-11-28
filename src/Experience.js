@@ -1,5 +1,7 @@
 import { Text, Html, ContactShadows, PresentationControls, Float, Environment, useGLTF, Image, Stars, Plane, Sphere, Torus, Ring, OrbitControls, Cone, TorusKnot, FirstPersonControls, Center, Text3D } from '@react-three/drei'
 import { useEffect, useRef, useState } from 'react'
+import Astroman from './Astroman'
+import AstromanToggle from './PacMan'
 import Crystal from './Crystal'
 import Deathstar from './Deathstar'
 import Marbel from './Marbel'
@@ -8,6 +10,7 @@ import Rock from './Rock'
 import RoughPlanet from './RoughPlanet'
 import SandPlanet from './TechPlanet'
 import TechPlanet from './TechPlanet'
+import Pacman from './PacMan'
 export default function Experience() {
     const computer = useGLTF('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf')
     const spaceship = useGLTF('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/low-poly-spaceship/model.gltf')
@@ -16,7 +19,7 @@ export default function Experience() {
     const [cameraXYZ, setCameraXYZ] = useState([0, 0, 0])
     const [zoom, setZoom] = useState(0);
     const [currentlyZoomed, setCurrentlyZoomed] = useState(false);
-    const [websites, setWebsites] = useState(['http://127.0.0.1:5173/', 'https://vivek9patel.github.io/', 'https://win11.vercel.app/', 'https://winxp.vercel.app/', 'http://nvisia.com', ''])
+    const [websites, setWebsites] = useState(['http://nvisia.com/', 'https://vivek9patel.github.io/', 'https://win11.vercel.app/', 'https://winxp.vercel.app/', 'http://nvisia.com', ''])
     const [index, setIndex] = useState(0);
     const [spaceshipRoatation, setSpaceshipRotation] = useState(0);
     const [spaceshipPositionZ, setSpaceshipPositionZ] = useState(-10);
@@ -69,7 +72,7 @@ export default function Experience() {
                 object={computer.scene}
                 position-y={- 1.2}
                 position-z={zoom}
-                onClick={() => {
+               /* onClick={() => {
                     if (!currentlyZoomed) {
                         setCameraXYZ([0, -.65, 0]);
                         setZoom(3);
@@ -81,14 +84,15 @@ export default function Experience() {
 
 
                     }
-                }}
+                }}*/
             >
                  <Monkey />
                 <Html
                     position={[0, 0, 1.2]}
                 >
                     <button onClick={() => {
-                        setFreeModeEnabled(!freeModeEnabled)
+                        setFreeModeEnabled(!freeModeEnabled);
+                        setIndex(5)
 
                     }}>Click me</button>
 
@@ -179,7 +183,7 @@ export default function Experience() {
                     font="./bangers-v20-latin-regular.woff"
 
                     fontSize={.2}
-                    position={[2, .6, .9]}
+                    position={[6, -2.6, 1.4]}
                     rotation-y={spaceshipRoatation}
                     rotation-z={spaceshipRoatation}
                     maxWidth={2}
@@ -198,7 +202,7 @@ export default function Experience() {
 
 
                     scale={.5}
-                    position={[15, 0.75, -20.75]}
+                    position={[15, -4.75, -20.75]}
                     onClick={() => {
                         if (index == websites.length - 1) {
                             setIndex(0)
@@ -213,7 +217,7 @@ export default function Experience() {
 
                 <TorusKnot
                     args={[3, .21, 16, 100]}
-                    position={[15, 0.75, -20.75]}
+                    position={[15, -4.75, -20.75]}
                     scale={.5}
                     rotation-x={spaceshipRoatation}
                     rotation-y={spaceshipRoatation}
@@ -250,6 +254,10 @@ export default function Experience() {
             <Crystal />
             <SandPlanet />
             <RoughPlanet />
+            <Astroman />
+            <Pacman />
+            
+            
 
             <Stars radius={1} depth={50} count={5000} factor={4} saturation={0} fade speed={3} />
 

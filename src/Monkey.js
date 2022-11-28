@@ -4,7 +4,7 @@
       
       const Monkey = () => {
         
-        const suzanne = useGLTF('./suzanne.gltf')
+        const suzanne = useGLTF('./spacestation/scene.gltf')
 
         const [rotation,setRotation] =useState(1);
         const [color,setColor] =useState('blue');
@@ -16,8 +16,9 @@
         return (
             <primitive
             object={suzanne.scene}
-            position-y={- 13.2}
-            rotation-z={rotation}
+            position={[6,4,-15]}
+            scale={.2}
+            rotation-y={rotation}
            
         >
 

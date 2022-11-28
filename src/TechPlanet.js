@@ -15,11 +15,11 @@ import { MeshNormalMaterial } from "three";
         return (<>
           <Torus
              args={[4,.3,4,100,100]}
-             position={[5, 0.75,-0.75]}
+             position={[5, 0.75,-0.85]}
                  scale={.5}
-                 rotation-x={-1.2}
+                 rotation-x={-1.9}
                 // rotation-y={rotation}
-                rotation-z={rotation*.2}
+                rotation-z={-rotation*.2}
                 
                  
              

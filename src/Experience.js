@@ -177,13 +177,8 @@ export default function Experience() {
 
             <>
 
-                <Deathstar onClick={() => {
-                    if (index == websites.length - 1) {
-                        setIndex(0)
-                    } else {
-                        setIndex(index + 1)
-                    }
-                }} />
+                <Deathstar 
+                   />
             </>
             <MFalcon />
             <Mario />

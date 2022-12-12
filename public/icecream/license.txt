@@ -1,0 +1,11 @@
+Model Information:
+* title:	Melting Ice Cream Bar - Shape Key Animation
+* source:	https://sketchfab.com/3d-models/melting-ice-cream-bar-shape-key-animation-0c5542bf2bd94979954846a30aff943a
+* author:	aqpetteri (https://sketchfab.com/aqpetteri)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Melting Ice Cream Bar - Shape Key Animation" (https://sketchfab.com/3d-models/melting-ice-cream-bar-shape-key-animation-0c5542bf2bd94979954846a30aff943a) by aqpetteri (https://sketchfab.com/aqpetteri) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

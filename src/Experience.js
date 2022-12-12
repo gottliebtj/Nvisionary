@@ -21,6 +21,11 @@ import LegoSpaceScooter from './LegoSpaceScooter'
 import Thanos from './Thanos'
 import Mario from './Mario'
 import MFalcon from './MFalcon'
+import Mcdonalds from './Mcdonalds'
+import Butterfly from './Butterfly'
+import Windows from './Windows'
+import IceCream from './IceCream'
+import Fish from './Fish'
 
 export default function Experience() {
     const computer = useGLTF('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf')
@@ -177,6 +182,11 @@ export default function Experience() {
             </>
             <MFalcon />
             <Mario />
+            <Fish /> 
+         <IceCream />
+            <Mcdonalds />
+            <Windows />
+            <Butterfly />
             <Thanos />
             <LegoSpaceScooter />
             <Saturn />

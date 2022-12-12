@@ -1,0 +1,11 @@
+Model Information:
+* title:	OutHere Christmas Globe
+* source:	https://sketchfab.com/3d-models/outhere-christmas-globe-44688f356e2c46baa20a3b1a63b4c131
+* author:	OutHereVR (https://sketchfab.com/OutHereVR)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "OutHere Christmas Globe" (https://sketchfab.com/3d-models/outhere-christmas-globe-44688f356e2c46baa20a3b1a63b4c131) by OutHereVR (https://sketchfab.com/OutHereVR) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

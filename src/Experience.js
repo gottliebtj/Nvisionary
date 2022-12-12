@@ -26,6 +26,11 @@ import Butterfly from './Butterfly'
 import Windows from './Windows'
 import IceCream from './IceCream'
 import Fish from './Fish'
+import Jellyfish from './Jellyfish'
+import Robot from './Robot'
+import ChristmasPlanet from './ChristmasPlanet'
+import Santa from './Santa'
+import Liberty from './Liberty'
 
 export default function Experience() {
     const computer = useGLTF('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf')
@@ -183,6 +188,11 @@ export default function Experience() {
             <MFalcon />
             <Mario />
             <Fish /> 
+            <Jellyfish />
+            <Santa />
+            <Liberty />
+            <Robot />
+            <ChristmasPlanet />
          <IceCream />
             <Mcdonalds />
             <Windows />

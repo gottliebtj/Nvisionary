@@ -25,7 +25,7 @@
 
      <primitive
             object={tesla.scene}
-            position={[-20,-30,-10]}
+            position={[0,10,20]}
             scale={.1}
             //rotation-z={1}
             //rotation-x={4}

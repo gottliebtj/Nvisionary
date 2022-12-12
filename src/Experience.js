@@ -31,6 +31,7 @@ import Robot from './Robot'
 import ChristmasPlanet from './ChristmasPlanet'
 import Santa from './Santa'
 import Liberty from './Liberty'
+import Tesla from './Tesla'
 
 export default function Experience() {
     const computer = useGLTF('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf')
@@ -183,6 +184,7 @@ export default function Experience() {
             <MFalcon />
             <Mario />
             <Fish /> 
+            <Tesla />
             <Jellyfish />
             <Santa />
             <Liberty />

@@ -13,11 +13,11 @@
             setRotation(rotation+.001)
         },[rotation])
         return (
-          <Sphere args={[1, 200, 200]} 
+          <Sphere args={[4, 500, 500]} 
           onClick={props.onClick}
           
 
-          position={[10, 1.75,-10.75]}
+          position={[19, 5.75,-25.75]}
           rotation-y={rotation}
           rotation-x={rotation}>
             <meshPhysicalMaterial

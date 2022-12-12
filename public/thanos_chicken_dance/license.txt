@@ -1,0 +1,11 @@
+Model Information:
+* title:	Thanos Chicken Dance
+* source:	https://sketchfab.com/3d-models/thanos-chicken-dance-bdadca5b171c49ebb97e741e07279183
+* author:	Jav0k (https://sketchfab.com/Jav0k)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Thanos Chicken Dance" (https://sketchfab.com/3d-models/thanos-chicken-dance-bdadca5b171c49ebb97e741e07279183) by Jav0k (https://sketchfab.com/Jav0k) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

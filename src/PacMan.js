@@ -32,18 +32,7 @@ import { useFrame } from "@react-three/fiber";
             
         },[rotation])
         return (
-            <PresentationControls
-            global
-            makeDefault={isOn}
-            //rotation={ [ 0.0, -0.1, 0 ] }
-            //polar={ [ - 0.4, 0.2 ] }
-            //zoom={zoom}
-            azimuth={[- 1, 0.75]}
-            //rotation={cameraXYZ} // Default rotation
-            polar={[0, Math.PI / 2]} // Vertical limits
-            //azimuth={[-Infinity, Infinity]} // Horizontal limits
-            //config={ { mass: 2, tension: 400 } }
-            snap={true}>
+         
 
             
             <primitive
@@ -51,8 +40,14 @@ import { useFrame } from "@react-three/fiber";
             position={[40.1, 21.05,-0.5]}
             scale={.1}
             //rotation-z={2}
-            rotation-y={1.3}
-            onClick={()=>{setIsOn(!isOn)}}
+            rotation-y={1.55}
+            onClick={()=>{
+              setIsOn(!isOn);
+              props.camera.position.x = 43.64;
+              props.camera.position.y = 26.95;
+              props.camera.position.z = -0.25;
+
+            }}
         >
                <Html
                     transform
@@ -66,7 +61,6 @@ import { useFrame } from "@react-three/fiber";
                    
                 </Html>
             </primitive>
-            </PresentationControls>
 
 
         );

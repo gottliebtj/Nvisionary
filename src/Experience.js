@@ -11,14 +11,24 @@ import RoughPlanet from './RoughPlanet'
 import SandPlanet from './TechPlanet'
 import TechPlanet from './TechPlanet'
 import Pacman from './PacMan'
+import { useFrame, useThree } from '@react-three/fiber'
+import Computer from './Computer'
+import WeirdCone from './WeirdCone'
+import Pikachu from './Pikachu'
+import SpaceDragon from './SpaceDragon'
+import Saturn from './Saturn'
+import LegoSpaceScooter from './LegoSpaceScooter'
+import Thanos from './Thanos'
+import Mario from './Mario'
+import MFalcon from './MFalcon'
+
 export default function Experience() {
     const computer = useGLTF('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf')
     const spaceship = useGLTF('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/low-poly-spaceship/model.gltf')
     const suzanne = useGLTF('./suzanne.gltf')
-
+    const {camera} = useThree();
     const [cameraXYZ, setCameraXYZ] = useState([0, 0, 0])
     const [zoom, setZoom] = useState(0);
-    const [currentlyZoomed, setCurrentlyZoomed] = useState(false);
     const [websites, setWebsites] = useState(['http://nvisia.com/', 'https://vivek9patel.github.io/', 'https://win11.vercel.app/', 'https://winxp.vercel.app/', 'http://nvisia.com', ''])
     const [index, setIndex] = useState(0);
     const [spaceshipRoatation, setSpaceshipRotation] = useState(0);
@@ -32,6 +42,9 @@ export default function Experience() {
     useEffect(() => {
         animateSpaceship()
     }, [spaceshipRoatation]);
+    
+
+    
 
 
     const animateSpaceship = async () => {
@@ -41,11 +54,17 @@ export default function Experience() {
 
     }
 
+    const moveCameraToLocation=(finalX,finalY,finalZ)=>{
+        camera.position.x = finalX
+        camera.position.y = finalY
+        camera.position.z = finalZ
+    }
+
 
     return <>
         <Environment preset='city' />
         <color args={['black']} attach={'background'}></color>
-        {freeModeEnabled ? <OrbitControls> </OrbitControls> : null}
+       <OrbitControls> </OrbitControls> 
         <PresentationControls
             global
             makeDefault={!freeModeEnabled}
@@ -67,74 +86,7 @@ export default function Experience() {
                 rotation={[- 0.1, Math.PI, 0]}
                 position={[0, 0.55, - 1.15]}
             />
-
-            <primitive
-                object={computer.scene}
-                position-y={- 1.2}
-                position-z={zoom}
-               /* onClick={() => {
-                    if (!currentlyZoomed) {
-                        setCameraXYZ([0, -.65, 0]);
-                        setZoom(3);
-                        setCurrentlyZoomed(true)
-                    } else {
-                        setCameraXYZ([0, 0, 0]);
-                        setZoom(0);
-                        setCurrentlyZoomed(false)
-
-
-                    }
-                }}*/
-            >
-                 <Monkey />
-                <Html
-                    position={[0, 0, 1.2]}
-                >
-                    <button onClick={() => {
-                        setFreeModeEnabled(!freeModeEnabled);
-                        setIndex(5)
-
-                    }}>Click me</button>
-
-                    {/**
-                     * Tylers Porfolio
-                     * <iframe src="http://127.0.0.1:5173/"  />
-                     * 
-                     * Ubunutu
-                     *  <iframe src="https://vivek9patel.github.io/"  />
-                     * 
-                     * Windows 11
-                     * <iframe src="https://win11.vercel.app/"  />
-                     * 
-                     * Windows XP
-                     * <iframe src="https://winxp.vercel.app/"  />
-                     */}
-                </Html>
-
-                <Html
-                    transform
-                    wrapperClass="htmlScreen"
-                    distanceFactor={1.17}
-                    position={[0, 1.56, - 1.4]}
-                    rotation-x={- 0.256}
-                >
-                    {websites[index] != '' ? <iframe src={websites[index]} /> : null}
-
-                    {/**
-                     * Tylers Porfolio
-                     * <iframe src="http://127.0.0.1:5173/"  />
-                     * 
-                     * Ubunutu
-                     *  <iframe src="https://vivek9patel.github.io/"  />
-                     * 
-                     * Windows 11
-                     * <iframe src="https://win11.vercel.app/"  />
-                     * 
-                     * Windows XP
-                     * <iframe src="https://winxp.vercel.app/"  />
-                     */}
-                </Html>
-            </primitive>
+            <Computer  camera={camera} websites={websites} />
 
             <Float>
                 <primitive
@@ -196,36 +148,9 @@ export default function Experience() {
             </>
 
             <>
+            <WeirdCone />
 
-
-                <Cone
-
-
-                    scale={.5}
-                    position={[15, -4.75, -20.75]}
-                    onClick={() => {
-                        if (index == websites.length - 1) {
-                            setIndex(0)
-                        } else {
-                            setIndex(index + 1)
-                        }
-                    }}
-                >
-                    <meshStandardMaterial color="#f3702d" />
-
-                </Cone>
-
-                <TorusKnot
-                    args={[3, .21, 16, 100]}
-                    position={[15, -4.75, -20.75]}
-                    scale={.5}
-                    rotation-x={spaceshipRoatation}
-                    rotation-y={spaceshipRoatation}
-
-
-                >
-                    <meshStandardMaterial color="green" />
-                </TorusKnot>
+              
             </>
 
             <>
@@ -250,12 +175,18 @@ export default function Experience() {
                     }
                 }} />
             </>
-
+            <MFalcon />
+            <Mario />
+            <Thanos />
+            <LegoSpaceScooter />
+            <Saturn />
             <Crystal />
-            <SandPlanet />
+            <SandPlanet moveCameraToLocation={moveCameraToLocation} />
             <RoughPlanet />
-            <Astroman />
-            <Pacman />
+            <Astroman camera={camera} />
+            <Pacman camera={camera} />
+            <Pikachu camera={camera} />
+            <SpaceDragon camera={camera}/>
             
             
 

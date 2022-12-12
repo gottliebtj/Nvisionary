@@ -1,0 +1,11 @@
+Model Information:
+* title:	LEGO Space Scooter
+* source:	https://sketchfab.com/3d-models/lego-space-scooter-ad2429482bc4496e8cd430bb503e6fbb
+* author:	HansWurschd (https://sketchfab.com/HansWurschd)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "LEGO Space Scooter" (https://sketchfab.com/3d-models/lego-space-scooter-ad2429482bc4496e8cd430bb503e6fbb) by HansWurschd (https://sketchfab.com/HansWurschd) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

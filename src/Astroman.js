@@ -2,7 +2,9 @@
       import React, { useEffect, useState } from "react";
       import { Sphere, useGLTF, useTexture } from "@react-three/drei";
       import * as THREE from 'three'
-import { useFrame } from "@react-three/fiber";
+      import { useFrame } from "@react-three/fiber";
+
+
       const Astroman = (props) => {
         
         const astroman = useGLTF('./astroman/scene.gltf');
@@ -36,8 +38,11 @@ import { useFrame } from "@react-three/fiber";
             scale={.2}
             //rotation-z={2}
             //rotation-y={rotation}
-            
-           
+            onClick={()=>{
+              props.camera.position.x = 4.1;
+              props.camera.position.y = 3.05;
+              props.camera.position.z = 7.5;
+            }}           
         >
             
 

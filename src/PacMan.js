@@ -3,6 +3,7 @@
       import { Html, OrbitControls, PivotControls, PresentationControls, Sphere, useGLTF, useTexture } from "@react-three/drei";
       import * as THREE from 'three'
 import { useFrame } from "@react-three/fiber";
+import postShowcaseEvent from "./utils/TechShowcaseHook";
       const Pacman = (props) => {
         
         const astroman = useGLTF('./pacman/scene.gltf');
@@ -46,6 +47,8 @@ import { useFrame } from "@react-three/fiber";
               props.camera.position.x = 43.64;
               props.camera.position.y = 26.95;
               props.camera.position.z = -0.25;
+              postShowcaseEvent()
+              
 
             }}
         >

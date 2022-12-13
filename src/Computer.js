@@ -2,14 +2,15 @@
       import React, { useEffect, useState } from "react";
       import { Sphere, useGLTF, useTexture,Html } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
+import postShowcaseEvent from "./utils/TechShowcaseHook";
       const Computer = (props) => {
         const computer = useGLTF('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf')
         const [index,setIndex]= useState(0);
         useFrame(()=>{
-            console.log('X: '+props.camera.position.x);
-            console.log('Y: '+props.camera.position.y)
-            console.log('Z: '+props.camera.position.z);
-            console.log(props.camera.position.z < -.5)
+           // console.log('X: '+props.camera.position.x);
+           // console.log('Y: '+props.camera.position.y)
+           // console.log('Z: '+props.camera.position.z);
+            //console.log(props.camera.position.z < -.5)
             if(props.camera.position.z < -.5){
                 setIndex(5)
             }
@@ -29,6 +30,7 @@ import { useFrame } from "@react-three/fiber";
             }else{
                 setIndex(index+1)
             }
+            postShowcaseEvent("Someone Pressed the computer")
             
 
            

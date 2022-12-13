@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Sphere, useGLTF, useTexture } from "@react-three/drei";
 import * as THREE from 'three'
 import { useFrame } from "@react-three/fiber";
+import postShowcaseEvent from "./utils/TechShowcaseHook";
 
 
 const SpaceDragon = (props) => {
@@ -87,6 +88,10 @@ const SpaceDragon = (props) => {
         //rotation-z={2}
         rotation-y={rotationY}
         //rotation-y={rotation}
+        onClick={()=>{
+            postShowcaseEvent("Someone Pressed the giant space monster!!!!!!")
+
+        }}
 
         >
 

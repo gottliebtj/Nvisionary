@@ -2,6 +2,7 @@
       import React, { useEffect, useState } from "react";
       import { Center, Sphere, Text3D, useTexture, Text, Torus} from "@react-three/drei";
 import { MeshNormalMaterial } from "three";
+import postShowcaseEvent from "./utils/TechShowcaseHook";
       
       const SandPlanet = (props) => {
         const [map,normalMap,roughnessMap] = useTexture([
@@ -37,7 +38,10 @@ import { MeshNormalMaterial } from "three";
              </Torus>
    
           <Sphere args={[1, 200, 200]} 
-          onClick={()=>{props.moveCameraToLocation(9, 2.5,-5.75)}}
+          onClick={()=>{
+            postShowcaseEvent("Someone Pressed the NVISIONARY PLANET!!!!!")
+            //props.moveCameraToLocation(9, 2.5,-5.75)
+          }}
           
 
           position={[5, 0.75,-0.75]}

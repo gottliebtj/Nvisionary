@@ -19,6 +19,7 @@
             position={[30,30,30]}
             scale={.2}
             rotation-y={rotation}
+            onClick={()=>{alert("Here")}}
            
         >
 

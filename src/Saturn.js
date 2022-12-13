@@ -1,6 +1,7 @@
 
       import React, { useEffect, useState } from "react";
       import { Sphere, useGLTF, useTexture } from "@react-three/drei";
+import postShowcaseEvent from "./utils/TechShowcaseHook";
       
       const Saturn = () => {
         
@@ -18,7 +19,10 @@
             position={[15,15,15]}
             scale={1}
             rotation-y={rotation}
-           
+            onClick={()=>{
+                postShowcaseEvent("Someone Pressed the planet saturn!")
+    
+            }}
         >
 
         </primitive>

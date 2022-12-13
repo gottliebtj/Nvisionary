@@ -3,6 +3,7 @@
       import { Sphere, useGLTF, useTexture } from "@react-three/drei";
       import * as THREE from 'three'
       import { useFrame } from "@react-three/fiber";
+import postShowcaseEvent from "./utils/TechShowcaseHook";
 
 
       const Mario = (props) => {
@@ -38,6 +39,10 @@
             scale={.5}
             //rotation-z={2}
             //rotation-y={rotation}
+            onClick={()=>{
+                postShowcaseEvent("Its a me mario!")
+    
+            }}  
                 
         >
         </primitive>

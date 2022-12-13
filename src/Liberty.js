@@ -3,6 +3,7 @@
       import { Float, GizmoHelper, PivotControls, Sphere, useGLTF, useTexture } from "@react-three/drei";
       import * as THREE from 'three'
       import { useFrame } from "@react-three/fiber";
+import postShowcaseEvent from "./utils/TechShowcaseHook";
 
 
       const Liberty = (props) => {
@@ -30,7 +31,10 @@
             //rotation-z={1}
             //rotation-x={4}
             rotation-y={rotation}
-
+            onClick={()=>{
+                postShowcaseEvent("Statue of liberty was clicked with freedom!")
+    
+            }}  
             rotation-x={rotation}
                 
         >

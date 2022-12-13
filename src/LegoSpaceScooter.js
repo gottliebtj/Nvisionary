@@ -20,7 +20,10 @@
             position={[-20,-15,30]}
             scale={.09}
             rotation-y={rotation}
-           
+            onClick={()=>{
+                postShowcaseEvent("LEGO MAN ENGAGED!")
+    
+            }}  
         >
 
         </primitive>

@@ -1,6 +1,7 @@
 
       import React, { useEffect, useState } from "react";
       import { Sphere, useGLTF, useTexture } from "@react-three/drei";
+import postShowcaseEvent from "./utils/TechShowcaseHook";
       
       const Mcdonalds = () => {
         
@@ -19,7 +20,10 @@
             position={[30,30,30]}
             scale={.2}
             rotation-y={rotation}
-            onClick={()=>{alert("Here")}}
+            onClick={()=>{
+              postShowcaseEvent("1 Big Mac Ordered")
+  
+          }}  
            
         >
 

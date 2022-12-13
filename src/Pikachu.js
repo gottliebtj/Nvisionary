@@ -3,6 +3,7 @@
       import { Sphere, useGLTF, useTexture } from "@react-three/drei";
       import * as THREE from 'three'
       import { useFrame } from "@react-three/fiber";
+import postShowcaseEvent from "./utils/TechShowcaseHook";
 
 
       const Pikachu = (props) => {
@@ -38,7 +39,10 @@
             scale={.2}
             //rotation-z={2}
             //rotation-y={rotation}
-                    
+            onClick={()=>{
+                postShowcaseEvent("POKEDEX says a wild pikachu has been spotted!")
+    
+            }}            
         >
             
 

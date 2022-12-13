@@ -3,6 +3,7 @@
       import { Float, GizmoHelper, PivotControls, Sphere, useGLTF, useTexture } from "@react-three/drei";
       import * as THREE from 'three'
       import { useFrame } from "@react-three/fiber";
+import postShowcaseEvent from "./utils/TechShowcaseHook";
 
 
       const Santa = (props) => {
@@ -41,7 +42,10 @@
             //rotation-x={4}
 
             //rotation-y={rotation}
-                
+            onClick={()=>{
+                postShowcaseEvent("Someone Pressed Santa, HOHOHO, Merry Christmas!!")
+    
+            }}   
         >
         </primitive>
 

@@ -3,6 +3,7 @@
       import { Float, Sphere, useGLTF, useTexture } from "@react-three/drei";
       import * as THREE from 'three'
       import { useFrame } from "@react-three/fiber";
+import postShowcaseEvent from "./utils/TechShowcaseHook";
 
 
       const MFalcon = (props) => {
@@ -31,7 +32,10 @@
             scale={.005}
             //rotation-z={2}
             rotation-y={rotation}
-                
+            onClick={()=>{
+                postShowcaseEvent("Han and Chewy ready on the Millennium falcon!")
+    
+            }}     
         >
         </primitive>
             </Float>
